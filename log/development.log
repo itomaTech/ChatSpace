@@ -3601,3 +3601,10 @@ Processing by MessagesController#index as HTML
 Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2019-03-29 19:55:34 +0900
+Processing by MessagesController#index as HTML
+  Rendering messages/index.html.haml within layouts/application
+  Rendered messages/index.html.haml within layouts/application (17.6ms)
+Completed 200 OK in 265ms (Views: 254.1ms | ActiveRecord: 0.0ms)
+
+
