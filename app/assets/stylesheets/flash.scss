@@ -1,0 +1,13 @@
+.flash-box {
+  .notice {
+    background-color: $lightBlue;
+    color: $textWhite;
+    text-align: center;
+  }
+
+  .alert {
+    background-color: $alertOrange;
+    color: $textWhite;
+    text-align: center;
+  }
+}
