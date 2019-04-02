@@ -1,5 +1,5 @@
 .wrapper
-  = render 'groups/index'
+  = render 'shared/side_bar'
 
   .chat-main
     .main-header
@@ -8,7 +8,7 @@
         %ul.main-header__left-box__member-list
           member：
           %li.main-header__left-box__member-list__member-name tomoya
-      = link_to 'edit_group_path(current_user.group_id)' do
+      = link_to edit_group_path(current_user.group_ids) do
         .main-header__edit-btn Edit
     .messages
       .message
