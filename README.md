@@ -13,7 +13,7 @@ Things you may want to cover:
 
 * Database creation
 
-## membersテーブル
+## membersテーブル(group_usersテーブルに変更)
 
 |Column|Type|Options|
 |------|----|-------|

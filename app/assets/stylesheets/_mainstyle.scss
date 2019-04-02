@@ -55,21 +55,23 @@
       overflow: scroll;
       padding: 20px 20px 0;
 
-      a {
+      .group {
+        margin-bottom: 40px;
         text-decoration: none;
 
-        .group {
-          margin-bottom: 40px;
-          color: $textWhite;
+        a {
 
-          &__group-name {
+          .group__group-name {
             font-size: 15px;
             font-weight: bold;
             padding-bottom: 5px;
+            color: $textWhite;
+
           }
-          &__latest-message {
+          .group__latest-message {
             font-size: 11px;
             font-weight: bold;
+            color: $textWhite;
           }
         }
       }
@@ -105,7 +107,7 @@
         color: $lightBlue;
         text-decoration: none;
 
-        &__edit-btn {
+        & {
           height: 40px;
           line-height: 40px;
           padding: 0 20px;

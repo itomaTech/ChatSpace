@@ -1,22 +1,5 @@
 .wrapper
-  .chat-side
-    .side-header
-      .side-header__box
-        %p.side-header__box__user-name
-        = current_user.name
-        %ul.side-header__box__menu
-          %li.side-header__box__menu__edit-user
-            = link_to edit_user_path(current_user) do
-              %i.fa.fa-edit
-          %li.side-header__box__menu__new-group
-            = link_to '#' do
-              %i.fa.fa-cog
-
-    .groups
-      = link_to '#' do
-        .group
-          .group__group-name groupName
-          .group__latest-message latestMessage
+  = render 'groups/index'
 
   .chat-main
     .main-header
@@ -25,7 +8,7 @@
         %ul.main-header__left-box__member-list
           member：
           %li.main-header__left-box__member-list__member-name tomoya
-      = link_to '#' do
+      = link_to 'edit_group_path(current_user.group_id)' do
         .main-header__edit-btn Edit
     .messages
       .message
