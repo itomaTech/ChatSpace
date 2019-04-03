@@ -6,8 +6,9 @@
       .main-header__left-box
         %h2.main-header__left-box__current-group groupName
         %ul.main-header__left-box__member-list
-          member：
-          %li.main-header__left-box__member-list__member-name tomoya
+          Member：
+          %li.main-header__left-box__member-list__member-name
+          = current_user.name
       = link_to edit_group_path(current_user.group_ids) do
         .main-header__edit-btn Edit
 
