@@ -16,19 +16,23 @@
   .chat-side {
     width: 300px;
     float: left;
+    height: 100%;
 
     .side-header {
       background-color: #253141;
       height: 100px;
       align-items: center;
       display: flex;
-      padding: 0 20px;
+      padding: 0;
+      position: fixed;
+      width: 300px;
 
       &__box {
         width: 100%;
         font-weight: bold;
         font-size: 16px;
         color: $textWhite;
+        margin: 0 20px;
 
         &__user-name {
           float: left;
@@ -52,9 +56,10 @@
     .groups {
       height: 100vh;
       background-color: #2f3e51;
+      padding: 25px 20px;
+      margin-top: 100px;
+      clear: left;
       overflow: scroll;
-      padding: 20px 20px 0;
-
       .group {
         margin-bottom: 40px;
         text-decoration: none;
@@ -87,6 +92,9 @@
       display: flex;
       justify-content: space-between;
       border-bottom: solid 1px #eeeeee;
+      position: fixed;
+      background-color:$textWhite;
+      width: 100%;
 
       &__left-box {
         margin-top: 35px;
@@ -118,7 +126,7 @@
     }
     .messages {
       height: calc(100vh - 100px);
-      padding: 46px 40px;
+      padding: 147px 40px 20px 40px;
       background-color: #fafafa;
       overflow: scroll;
 
