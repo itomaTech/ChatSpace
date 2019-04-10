@@ -28,7 +28,8 @@
       / = f.collection_check_boxes :user_ids, User.all, :id, :name
       #chat-group-users
         .chat-group-user.clearfix#chat-group-user-22
-          %input{:name => "chat_group[user_ids][]", :type => 'hidden', :value => ''}/
+          = f.hidden_field "chat_group[user_ids][]", value: ''
+          -# %input{:name => "chat_group[user_ids][]", :type => 'hidden', :value => ''}/
           %p.chat-group-user__name
 
   .chat-group-form__field.clearfix

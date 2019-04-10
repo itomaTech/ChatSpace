@@ -22,7 +22,7 @@ $(function() {
     $.ajax( {
       type: 'GET',
       url: '/users',
-      data: {  requestedUser: input},
+      data: {requestedUser: input},
       dataType: 'json'
     })
     .done(function(users) {
@@ -43,8 +43,8 @@ $(function() {
 });
 
 $(document).on('click', '.user-search-add', function() {
-  var userName = $(this).attr('data-user-name')
-  var userId = $(this).attr('data-user-id')
+  var userName = $(this).data('user-name')
+  var userId = $(this).data('user-id')
 
   function addUser() {
     var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
@@ -60,5 +60,4 @@ $(document).on('click', '.user-search-add', function() {
 
 $(document).on('click', '.user-search-remove', function() {
   $(this).parent('.chat-group-user').remove();
-
 })
