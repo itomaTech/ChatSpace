@@ -5,7 +5,7 @@ $(function() {
     if (message.image) {
       imageBox = `${message.image}`
     }
-    var html = `<div class="message">
+    var html = `<div class="message" data-messageId="${message.id}">
                   <div class="message__upper-info">
                     <p class="message__upper-info__talker">
                       ${message.name}
@@ -50,4 +50,27 @@ $(function() {
       $('.submit-btn').prop("disabled", false);
     })
   })
+
+  var reloadMessages = function() {
+    var last_message_id = $('.message:last').data('messageId')
+    var href = window.location.href
+
+    $.ajax( {
+      url: href,
+      type: 'GET',
+      data: {message: {id: last_message_id} }, 
+      dataType: 'json',
+    })
+    .done(function(data) {
+      $.each(data, function(i, message) {
+        var insertHTML = buildHTML(message);
+        $('.messages').append(insertHTML);
+        $('.messages').animate({scrollTop: $(".messages"[0].scrollHeight+400)}, "fast");
+      })
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  }
+  setInterval(reloadMessages, 5000);
 });
