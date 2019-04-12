@@ -52,20 +52,18 @@ $(function() {
   })
 
   var reloadMessages = function() {
-    var last_message_id = $('.message:last').data('messageId')
-    var href = window.location.href
-
+    var last_message_id = $('.message').last().attr("data-messageId");
     $.ajax( {
-      url: href,
+      url: `/groups/:group_id/api/messages`,
       type: 'GET',
-      data: {message: {id: last_message_id} }, 
+      data: {id: last_message_id}, 
       dataType: 'json',
     })
     .done(function(data) {
       $.each(data, function(i, message) {
         var insertHTML = buildHTML(message);
         $('.messages').append(insertHTML);
-        $('.messages').animate({scrollTop: $(".messages"[0].scrollHeight+400)}, "fast");
+        $(".messages").animate({scrollTop: $(".messages")[0].scrollHeight+100}, "fast");
       })
     })
     .fail(function() {
