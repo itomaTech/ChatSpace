@@ -5,7 +5,7 @@ $(function() {
     if (message.image) {
       imageBox = `${message.image}`
     }
-    var html = `<div class="message">
+    var html = `<div class="message" data-messageId="${message.id}" data-groupId="${message.group_id}">
                   <div class="message__upper-info">
                     <p class="message__upper-info__talker">
                       ${message.name}
@@ -23,7 +23,6 @@ $(function() {
                 </div>`
     return html;
   }
-
 
   $(".new-message").on('submit', function(e) {
     e.preventDefault();
@@ -50,4 +49,26 @@ $(function() {
       $('.submit-btn').prop("disabled", false);
     })
   })
+
+  var reloadMessages = function() {
+    var last_message_id = $('.message').last().attr("data-messageId");
+    var groupId = $('.message').last().attr("data-groupId");
+    $.ajax( {
+      url: `/groups/`+ groupId +`/api/messages`,
+      type: 'GET',
+      data: {id: last_message_id}, 
+      dataType: 'json',
+    })
+    .done(function(data) {
+      $.each(data, function(i, message) {
+        var insertHTML = buildHTML(message);
+        $('.messages').append(insertHTML);
+        $(".messages").animate({scrollTop: $(".messages")[0].scrollHeight+100}, "fast");
+      })
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  }
+  setInterval(reloadMessages, 5000);
 });
