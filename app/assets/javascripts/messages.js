@@ -5,7 +5,7 @@ $(function() {
     if (message.image) {
       imageBox = `${message.image}`
     }
-    var html = `<div class="message" data-messageId="${message.id}">
+    var html = `<div class="message" data-messageId="${message.id}" data-groupId="${message.group_id}">
                   <div class="message__upper-info">
                     <p class="message__upper-info__talker">
                       ${message.name}
@@ -52,8 +52,7 @@ $(function() {
 
   var reloadMessages = function() {
     var last_message_id = $('.message').last().attr("data-messageId");
-    var url = location.href.split("/");
-    var groupId = url[4]
+    var groupId = $('.message').last().attr("data-groupId");
     $.ajax( {
       url: `/groups/`+ groupId +`/api/messages`,
       type: 'GET',

@@ -1,4 +1,4 @@
-.message{data: {messageId: "#{message.id}"}}
+.message{data: {messageId: "#{message.id}", groupId: "#{message.group_id}"}}
   .message__upper-info
     %p.message__upper-info__talker
       = message.user.name
