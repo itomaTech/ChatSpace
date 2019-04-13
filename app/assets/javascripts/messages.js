@@ -52,8 +52,10 @@ $(function() {
 
   var reloadMessages = function() {
     var last_message_id = $('.message').last().attr("data-messageId");
+    var url = location.href.split("/");
+    var groupId = url[4]
     $.ajax( {
-      url: `/groups/:group_id/api/messages`,
+      url: `/groups/`+ groupId +`/api/messages`,
       type: 'GET',
       data: {id: last_message_id}, 
       dataType: 'json',
