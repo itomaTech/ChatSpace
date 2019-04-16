@@ -31,4 +31,6 @@
 /config/master.key
 
 public/uploads/*
-public/uploads/message/image/!dummy.png
+!/public/uploads/message/image/dummy.png
+
+config/secrets.yml
